@@ -1,26 +1,33 @@
+const rock = 'Rock';
+const paper = 'Paper';
+const scissors = 'Scissors';
+
 function getComputerChoice() {
   const computerChoiceId = Math.floor(Math.random() * 3) + 1;
 
   switch (computerChoiceId) {
     case 1:
-      return 'Rock';
+      return rock;
     case 2:
-      return 'Paper';
+      return paper;
     case 3:
-      return 'Scissors';
+      return scissors;
   }
 }
 
 
 function getWinningSign(sign1, sign2) {
-  if (sign1 === 2) return 0;
+  if (sign1 === sign2) return 0;
   switch (sign1) {
-    case 'Rock':
-      return (sign2 === 'Scissors') ? sign1 : sign2;
-    case 'Paper':
-      return (sign2 === 'Rock') ? sign1 : sign2;
-    case 'Scissors':
-      return (sign2 === 'Paper') ? sign1 : sign2;
+    case rock:
+      if (sign2 === scissors) return sign1;
+      if (sign2 === paper) return sign2;
+    case paper:
+      if (sign2 === rock) return sign1;
+      if (sign2 === scissors) return sign2;
+    case scissors:
+      if (sign2 === paper) return sign1;
+      if (sign2 === rock) return sign2;
   }
 }
 
@@ -37,5 +44,4 @@ function playRound(playerSelection, computerSelection) {
   } else {
     return `You Lose! ${computerSelection} beats ${playerSelection}`
   }
-
 }
