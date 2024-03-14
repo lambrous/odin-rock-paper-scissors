@@ -15,26 +15,22 @@ function getComputerChoice() {
   }
 }
 
-function getWinningSign(sign1, sign2) {
-  if (sign1 === sign2) return 0;
-  switch (sign1) {
-    case rock:
-      if (sign2 === scissors) return sign1;
-      if (sign2 === paper) return sign2;
-    case paper:
-      if (sign2 === rock) return sign1;
-      if (sign2 === scissors) return sign2;
-    case scissors:
-      if (sign2 === paper) return sign1;
-      if (sign2 === rock) return sign2;
-  }
-}
-
 function playRound(playerSelection, computerSelection) {
-  const winningSign = getWinningSign(playerSelection, computerSelection);
-
-  if (!winningSign) return 0;
-  return winningSign === playerSelection ? 1 : 2;
+  if (playerSelection === computerSelection) {
+    console.log('Draw!');
+    return 0;
+  }
+  if (
+    (playerSelection === rock && computerSelection === scissors) ||
+    (playerSelection === paper && computerSelection === rock) ||
+    (playerSelection === scissors && computerSelection === paper)
+  ) {
+    console.log(`You Win! ${playerSelection} beats ${computerSelection}`);
+    return 1;
+  } else {
+    console.log(`You Lose! ${computerSelection} beats ${playerSelection}`);
+    return 2;
+  }
 }
 
 function normalizeCase(text) {
@@ -48,28 +44,15 @@ function playGame() {
   let computerScore = 0;
 
   for (let round = 1; round <= totalRounds; round++) {
+    console.log(`Round ${round}:`);
     const playerSelection = normalizeCase(
       prompt('Type your choice: Rock, Paper, or Scissors')
     );
     const computerSelection = getComputerChoice();
     const winner = playRound(playerSelection, computerSelection);
-
-    if (winner === 0) {
-      console.log('Draw!');
-      continue;
-    }
-
-    if (winner === 1) {
-      playerScore++;
-      console.log(
-        `Round ${round}: You Win! ${playerSelection} beats ${computerSelection}`
-      );
-    } else {
-      computerScore++;
-      console.log(
-        `Round ${round}: You Lose! ${computerSelection} beats ${playerSelection}`
-      );
-    }
+    if (!winner) continue;
+    if (winner === 1) playerScore++;
+    else computerScore++;
   }
 
   if (playerScore > computerScore) {
