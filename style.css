@@ -1,0 +1,69 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  height: 100vh;
+  text-align: center;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: black;
+  color: #faebd7;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game {
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+.choice {
+  font-size: 5rem;
+  display: block;
+  border-radius: 0.1em;
+}
+
+.computer .choice {
+  /* transform-origin: 0 0; */
+  transform: rotate(180deg);
+  background-color: #faebd733;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.player .choices {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.player .choice {
+  background-color: #faebd788;
+  padding: 0.3em 0.5em;
+  border: none;
+  flex: 1;
+}
+.player .choice:hover {
+  background-color: #faebd7dd;
+}
+
+.status {
+  font-size: 1.35rem;
+}
+
+.score-text {
+  font-size: 1.5rem;
+  margin: 1rem 0;
+}

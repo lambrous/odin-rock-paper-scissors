@@ -1,15 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors | The Odin Project</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="./script.js"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rock Paper Scissors | The Odin Project</title>
-  <script defer src="./script.js"></script>
-</head>
+  <body>
+    <div class="game">
+      <div class="computer">
+        <p class="score-text">
+          Computer Score: <span class="computer-score">0</span>
+        </p>
+        <span class="choice">· · · ·</span>
+      </div>
 
-<body>
+      <div class="status">
+        <h1>ROCK PAPER SCISSORS</h1>
+      </div>
 
-</body>
-
+      <div class="player">
+        <div class="choices">
+          <button class="choice rock">✊</button>
+          <button class="choice paper">🖐️</button>
+          <button class="choice scissors">✌️</button>
+        </div>
+        <p class="score-text">
+          Your Score: <span class="player-score">0</span>
+        </p>
+      </div>
+    </div>
+  </body>
 </html>
