@@ -61,9 +61,36 @@ body {
 
 .status {
   font-size: 1.35rem;
+  position: relative;
 }
 
 .score-text {
   font-size: 1.5rem;
   margin: 1rem 0;
+}
+
+button {
+  cursor: pointer;
+}
+
+.reset {
+  background-color: #faebd733;
+  font-size: 1rem;
+  color: inherit;
+  border: 2px solid #faebd7;
+  padding: 0.5em 1.5em;
+  border-radius: 1em;
+
+  position: absolute;
+  top: 150%;
+  left: 50%;
+  transform: translate(-50%);
+
+  &:hover {
+    background-color: #faebd766;
+  }
+}
+
+.hide {
+  visibility: hidden;
 }
